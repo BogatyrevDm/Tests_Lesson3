@@ -22,8 +22,10 @@ internal class DetailsPresenter internal constructor(
         viewContract!!.setCount(count)
     }
 
+    fun getView() = viewContract
+
     override fun onAttach(view: ViewContract) {
-        if (viewContract == null){
+        if (viewContract == null) {
             viewContract = view as ViewDetailsContract
         }
     }
