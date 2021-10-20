@@ -149,4 +149,21 @@ class SearchPresenterTest {
         //Убеждаемся, что ответ от сервера обрабатывается корректно
         verify(viewContract, times(1)).displaySearchResults(searchResults, 101)
     }
+    @Test
+    fun onAttach_ViewNotNull(){
+        presenter.onAttach(viewContract)
+        val viewFromPresenter = presenter.getView()
+        assertNotNull(viewFromPresenter)
+    }
+    @Test
+    fun onDetach_ViewNull(){
+        presenter.onAttach(viewContract)
+        val viewFromPresenter = presenter.getView()
+        assertNotNull(viewFromPresenter)
+
+        presenter.onDetach(viewContract)
+        val viewFromPresenterAfterDetach = presenter.getView()
+
+        assertNull(viewFromPresenterAfterDetach)
+    }
 }

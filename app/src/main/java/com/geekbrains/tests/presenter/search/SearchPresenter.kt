@@ -54,6 +54,8 @@ internal class SearchPresenter internal constructor(
         }
     }
 
+    fun getView() = viewContract
+
     override fun handleGitHubError() {
         viewContract!!.displayLoading(false)
         viewContract!!.displayError()
